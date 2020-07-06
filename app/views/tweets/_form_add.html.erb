@@ -1,0 +1,9 @@
+<%= form_with(model: [@twitter_thread, tweet], data: { type: "html", action: 'ajax:success->tweet#onAddSuccess ajax:error->tweet#onAddError' }) do |form| %>
+
+  <%= form.text_area :content, :autofocus => true, data: { action: "input->tweet#addResize", target: "tweet.newTextArea" },
+                     placeholder: "Write something interesting...",  class: "new-tweet-editor cursor-text text-black-fade" %>
+
+  <div class="my-4">
+    <%= form.submit "Add tweet", class: "btn small" %>
+  </div>
+<% end %>

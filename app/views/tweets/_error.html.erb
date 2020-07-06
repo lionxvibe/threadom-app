@@ -1,0 +1,8 @@
+<% if tweet.errors.any? %>
+  <%= pluralize(tweet.errors.count, "error") %> prohibited this tweet from being saved:
+
+  <% tweet.errors.full_messages.each do |message| %>
+    - <%= message %>
+  <% end %>
+
+<% end %>

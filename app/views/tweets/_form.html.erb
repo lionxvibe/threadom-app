@@ -1,0 +1,17 @@
+<%= link_to twitter_thread_tweet_url(@twitter_thread, tweet), method: :delete, data: {confirm: 'Are you sure?'}, class: "absolute top-0 right-0" do %>
+  <img class="w-4" src="<%= asset_pack_path 'media/images/close.svg' %>" alt="Delete">
+<% end %>
+
+<%= form_with(model: [@twitter_thread, tweet], data: { action: 'ajax:success->tweet#onEditSuccess ajax:error->tweet#onEditError' }) do |form| %>
+
+  <%= form.text_area :content, :autofocus => true, data: { action: "input->tweet#resize click->tweet#resize click@window->tweet#save", target: "tweet.editTextArea" }, placeholder: "Write something interesting...",  class: "tweet-editor cursor-text" %>
+  <div class="my-4 hidden">
+    <%= form.submit "Save my tweet", data: {target: "tweet.submitButton"}, class: "btn primary" %>
+  </div>
+<% end %>
+
+<div class="flex justify-start space-x-3 items-center">
+  <%= link_to twitter_thread_tweet_url(@twitter_thread, tweet), method: :delete, data: {confirm: 'Are you sure?'} do %>
+    <img class="w-6" src="<%= asset_pack_path 'media/images/photo.svg' %>" alt="Add photo">
+  <% end %>
+</div>

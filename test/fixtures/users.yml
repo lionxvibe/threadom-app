@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+john:
+  email: john@doe.com
+  uid: 123
+  nickname: john
+  provider: twitter
+  name: John Doe
+  is_locked: false
+  is_admin: false
+  timezone: UTC
+
+bob:
+  email: bob@bob.com
+  uid: 456
+  nickname: bob
+  provider: twitter
+  name: Bob B.
+  is_locked: false
+  is_admin: false
+  timezone: UTC

@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<div class="text-center md:w-2/3 mx-auto" data-controller="tweet">
+  <div data-target="tweet.list">
+    <% @twitter_thread.tweets.each do |tweet| %>
+      <div class="flex text-left relative font-medium px-6 py-2 mb-8">
+        <div class="tweet-avatar">
+          <div class="w-16 h-16 mx-auto bg-blue-fade border-4 border-black-fade rounded-full">
+            <img class="rounded-full" src="https://pbs.twimg.com/profile_images/1233902953389580297/JQLhiQDb_400x400.jpg" alt="Logo">
+          </div>
+        </div>
+        <div class="whitespace-pre-line flex-1 ml-6">
+          <p><%= @twitter_thread.user.name %> - <em class="text-gray-700 text-sm">@<%= @twitter_thread.user.nickname %></em></p>
+          <div data-url="<%= edit_twitter_thread_tweet_path(@twitter_thread, tweet) %>" data-id="<%= tweet.position %>" data-action="click->tweet#edit"><%= tweet.content %></div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="flex text-left relative font-medium px-6 py-2 mb-8">
+    <div class="tweet-avatar">
+      <div class="w-16 h-16 mx-auto bg-blue-fade border-4 border-black-fade rounded-full">
+        <img class="rounded-full" src="https://pbs.twimg.com/profile_images/1233902953389580297/JQLhiQDb_400x400.jpg" alt="Logo">
+      </div>
+    </div>
+    <div class="whitespace-pre-line flex-1 ml-6">
+      <p><%= @twitter_thread.user.name %> - <em class="text-gray-700 text-sm">@<%= @twitter_thread.user.nickname %></em></p>
+      <div style="color: #c8cac6" data-url="<%= new_twitter_thread_tweet_url(@twitter_thread) %>" data-action="click->tweet#new">
+        Write something interesting...
+      </div>
+    </div>
+  </div>
+
+  <br /> <br/>
+
+  <% if @twitter_thread.posted_at %>
+    <p>
+      <strong>Posted at:</strong>
+      <%= @twitter_thread.posted_at %>
+    </p>
+  <% elsif @twitter_thread.scheduled_at %>
+    <p>
+      <strong>Scheduled at:</strong>
+      <%= @twitter_thread.scheduled_at %>
+    </p><br/>
+    <%= link_to 'Reschedule', edit_twitter_thread_path(@twitter_thread), class: "btn primary" %>
+<% else %>
+    <%= link_to 'Free my thread !', edit_twitter_thread_path(@twitter_thread), class: "btn primary" %>
+  <% end %>
+
+  <br /><br /><br />
+  <%= link_to 'Delete thread', @twitter_thread, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn text danger text-xs" unless @twitter_thread.posted_at %>
+
+
+</div>

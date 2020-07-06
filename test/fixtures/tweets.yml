@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  twitter_thread: one
+  content: Hello world
+  position: 1
+
+two:
+  twitter_thread: one
+  content: This is a tweet
+  position: 1
+
+three:
+  twitter_thread: not_posted
+  content: Hello world
+  position: 1
+
+four:
+  twitter_thread: not_posted
+  content: This is a tweet
+  position: 1

@@ -1,0 +1,22 @@
+<nav class="grid grid-cols-2 md:grid-cols-3 gap-4 grid-flow-col py-10 items-center">
+  <div class="hidden md:block"></div>
+  <div class="">
+    <%= link_to root_url do %>
+      <img class="w-64 ml-4 mr-auto md:mx-auto" src="<%= asset_pack_path 'media/images/logo.png' %>" alt="Logo">
+    <% end %>
+  </div>
+  <div class="hidden md:block">
+    <% if current_user.present? %>
+      <div id="avatar" class="w-16 h-16 mx-auto bg-blue-fade border-4 border-black-fade rounded-md">
+        <%= link_to user_path do %>
+          <img src="https://pbs.twimg.com/profile_images/1233902953389580297/JQLhiQDb_400x400.jpg" alt="Avatar">
+        <% end %>
+      </div>
+    <% else %>
+      <a class="btn primary" href="/auth/twitter">Connect with Twitter</a>
+    <% end %>
+  </div>
+  <div class="md:hidden">
+    <svg id="burger" enable-background="new 0 0 512 512" class="h-8 text-yellow-fade ml-auto mr-4" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="m464.883 64.267h-417.766c-25.98 0-47.117 21.136-47.117 47.149 0 25.98 21.137 47.117 47.117 47.117h417.766c25.98 0 47.117-21.137 47.117-47.117 0-26.013-21.137-47.149-47.117-47.149z"/><path d="m464.883 208.867h-417.766c-25.98 0-47.117 21.136-47.117 47.149 0 25.98 21.137 47.117 47.117 47.117h417.766c25.98 0 47.117-21.137 47.117-47.117 0-26.013-21.137-47.149-47.117-47.149z"/><path d="m464.883 353.467h-417.766c-25.98 0-47.117 21.137-47.117 47.149 0 25.98 21.137 47.117 47.117 47.117h417.766c25.98 0 47.117-21.137 47.117-47.117 0-26.012-21.137-47.149-47.117-47.149z"/></svg>
+  </div>
+</nav>

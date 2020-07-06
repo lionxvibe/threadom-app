@@ -1,0 +1,24 @@
+<%= form_with(model: twitter_thread, local: true) do |form| %>
+  <% if twitter_thread.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(twitter_thread.errors.count, "error") %> prohibited this twitter_thread from being saved:</h2>
+
+      <ul>
+        <% twitter_thread.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :scheduled_at %>
+    <%= form.datetime_select :scheduled_at %>
+  </div>
+
+  <p>Your current timezone: <%= current_user.timezone %></p> <%= link_to "Change my timezone", edit_user_url %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

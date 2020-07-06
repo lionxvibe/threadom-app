@@ -1,0 +1,7 @@
+<div class="text-center">
+  <%= render 'form', tweet: @tweet %>
+
+  <% if @twitter_thread.tweets.count > 0 %>
+    <%= link_to 'Cancel', @twitter_thread, class: "btn small" %>
+<% end %>
+</div>

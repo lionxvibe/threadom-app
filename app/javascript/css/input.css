@@ -1,0 +1,10 @@
+.tweet-editor, .new-tweet-editor {
+    @apply text-left w-full mx-auto bg-white-fade font-medium
+    outline-none resize-none overflow-y-auto -mt-12;
+}
+
+@screen md {
+    .tweet-editor, .new-tweet-editor {
+        @apply w-2/3;
+    }
+}

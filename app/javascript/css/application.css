@@ -1,0 +1,35 @@
+/* postcss start ignore */
+@import "tailwindcss/base";
+/* postcss end ignore */
+@import "tailwindcss/components";
+
+@import 'fonts.css';
+@import "nav.css";
+@import "btn.css";
+@import "input.css";
+
+@import "tailwindcss/utilities";
+
+.turbolinks-progress-bar {
+    height: 5px;
+    @apply bg-blue-fade;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    @apply bg-white-fade;
+}
+
+a {
+    outline: 0;
+}
+
+svg path {
+    @apply fill-current;
+}
+
+.tweet-avatar::after {
+    height: 70%;
+    content: "";
+    @apply block ml-8 mt-4 border-l-2 border-yellow-fade;
+}

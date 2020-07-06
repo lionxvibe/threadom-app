@@ -1,0 +1,5 @@
+<div class="text-center">
+  <%= render 'form', tweet: @tweet %>
+  <%= link_to "Delete tweet", [@twitter_thread, @tweet], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn text danger text-xs" %>
+
+</div>

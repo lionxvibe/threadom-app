@@ -1,0 +1,37 @@
+<% provide :title, 'My scheduled threads' %>
+
+<div class="text-center">
+  <p id="notice"><%= notice %></p>
+
+  <% if @twitter_threads.count == 0 %>
+
+    <img class="w-40 mx-auto pt-20" src="<%= asset_pack_path 'media/images/bird-cage.svg' %>" alt="No scheduled threads">
+
+    <p class="italic text-2xl font-light py-10">No scheduled threads :(</p>
+
+  <% else %>
+    <% @twitter_threads.each do |twitter_thread| %>
+      <%= link_to twitter_thread do %>
+      <div class="text-left relative md:w-1/2 mx-auto font-medium px-6 py-2 border-4 border-black-fade rounded-lg shadow mb-8">
+        <% if twitter_thread.posted_at %>
+          <span class="rounded-full border-2 border-black-fade bg-green-300 py-1 px-4 text-xs"><strong>Posted:</strong> <%= twitter_thread.posted_at %></span>
+        <% elsif twitter_thread.scheduled_at %>
+          <span class="rounded-full border-2 border-black-fade bg-yellow-fade py-1 px-4 text-xs"><strong>Scheduled:</strong> <%= twitter_thread.scheduled_at %></span>
+        <% else %>
+          <span class="rounded-full border-2 border-black-fade bg-blue-fade py-1 px-4 text-xs">Draft</span>
+        <% end %>
+        <% if twitter_thread.tweets.count > 0  %>
+        <p class="mt-4"><%= twitter_thread.tweets.first.content[0..30]...%></p>
+        <% else %>
+        <p class="mt-4 italic">No tweets. Create a new one !</p>
+        <% end %>
+      </div>
+      <% end %>
+    <% end %>
+  <% end %>
+
+
+  <br>
+
+  <%= link_to 'Start a thread', twitter_threads_path, method: :post, class: "btn" %>
+</div>
